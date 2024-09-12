@@ -21,11 +21,14 @@ export const game = {
     validateWord :async function(word){
         for(let i=0; i< this.letters.length; i++){
             if(word.includes(this.letters[i]) === false){
+                document.getElementById('error').innerText = "A palavra precisa conter as 3 letras";
                 this.error = true;
                 return false;
             }
         }
         if(this.inputWords.includes(word)){
+            document.getElementById('error').innerText = "A palavra já foi digitada";
+            this.error = true;
             return false;
         }
 
@@ -33,6 +36,7 @@ export const game = {
         const data = await rawData.json();
 
         if(!data.length){
+            document.getElementById('error').innerText = "A palavra digitada não existe";
             return false;
         }
 

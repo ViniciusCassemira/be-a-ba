@@ -27,22 +27,25 @@
           </div>
           <div>
             <form id="form">
-              <input id="word" class="input" type="text" name="word" disabled />
+              <input id="word" class="input" autocomplete="off" type="text" name="word" disabled />
               <div>
                 <span id="error" class="error">
-                  A palavra digitada não existe
+                  .
                 </span>
               </div>
             </form>
             <button id="new-game" class="btn">
               Nova Partida
             </button>
+            <p id="wordListTitle">Palavras escritas</p>
+            <div id="wordList">
+            </div>
           </div>
         </div>
         <div class="footer">
           <p class="tip">
             <span class="bold">Como jogar</span>: Dado as 3 letras no topo, 
-             digite no campo palavras que contenham as três letras; 
+             digite no campo palavras que contenham as três letras;
              Digitando uma palavra existente no dicionário português que 
              contenha as 3 letras, você ganha.
           </p>

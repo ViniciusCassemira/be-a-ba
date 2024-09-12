@@ -5,6 +5,8 @@ const inputElem = document.getElementById('word');
 const errorElem = document.getElementById('error');
 const streakElem = document.getElementById('streak');
 const streakText = document.getElementById('streakText');
+const wordList = document.getElementById('wordList');
+const wordListTitle = document.getElementById('wordListTitle');
 
 newGameButtonElem.addEventListener('click',function(){
     game.newGame();
@@ -19,7 +21,10 @@ newGameButtonElem.addEventListener('click',function(){
     inputElem.focus()
     errorElem.style.visibility = 'hidden';
     streakText.style.visibility = 'visible';
-    streakElem.innerHTML = ""
+    streakElem.innerHTML = "0";
+    wordList.innerHTML ="";
+    wordList.style.visibility = 'visible';
+    wordListTitle.style.visibility = 'visible';
 })
 
 document.getElementById('form').addEventListener('submit',async function(event){
@@ -32,8 +37,13 @@ document.getElementById('form').addEventListener('submit',async function(event){
     if (isWordValid){
         streakElem.innerHTML = game.streak;
         errorElem.style.visibility = 'hidden';
-        inputElem.value=""
-        // inputElem.innerHTML = ""
+        inputElem.value="" 
+        errorElem.innerText = "A palavra digitada não existe"
+
+        const palavraValidada = document.createElement('p')
+        palavraValidada.textContent = word.toLocaleLowerCase()
+        wordList.appendChild(palavraValidada);
+
     }else{
         errorElem.style.visibility = 'visible';
     }
